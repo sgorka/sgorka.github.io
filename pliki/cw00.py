@@ -16,5 +16,6 @@ wynagrodzenie = float(stawka) * float(godziny)
 #np. stawka = "8", gdoziny = "2"
 #to działa tak, najpierw "8" zamiana na 8.0 oraz "2" zamiana na 2.0
 #następnie przypisuje na wynagrodzenie wynik 8*2
-#alternatywnie można to zorbić np tak godziny = float(input(">"))
+#alternatywnie można to zorbić np tak godziny = float(input(">")) i od razu mamy
+# dobry typ na zmiennej godziny
 print("Dziennie zarabiasz:", round(wynagrodzenie, 2))
