@@ -11783,12 +11783,241 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Zacznijmy od ustalenia katalogu roboczego</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;E:\\python_socjologia\\python\\zajecia08&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wczytanie pliku:0</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;probka.csv&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">plik</span><span class="p">:</span> <span class="c1"># domyślny tryb to &#39;r&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">plik</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Imię;liczba osób\n&#39;, &#39;ZOFIA;90\n&#39;, &#39;HANNA;86\n&#39;, &#39;ZUZANNA;86\n&#39;, &#39;MAJA;82\n&#39;, &#39;ALICJA;78\n&#39;, &#39;LENA;74\n&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;probka.csv&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">plik</span><span class="p">:</span> <span class="c1"># domyślny tryb to &#39;r&#39;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">plik</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Imię;liczba osób
+
+ZOFIA;90
+
+HANNA;86
+
+ZUZANNA;86
+
+MAJA;82
+
+ALICJA;78
+
+LENA;74
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#262;wiczenie-1">&#262;wiczenie 1<a class="anchor-link" href="#&#262;wiczenie-1">&#182;</a></h3><p>Napisz program, który wypisze <br>
 <code>Wiersz 1: '1 linijka z pliku'</code> <br>
 <code>Wiersz 2: '2 linijka z pliku'</code></p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;probka.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">csv_content</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Imię;liczba osób&#39;]
+[&#39;ZOFIA;90&#39;]
+[&#39;HANNA;86&#39;]
+[&#39;ZUZANNA;86&#39;]
+[&#39;MAJA;82&#39;]
+[&#39;ALICJA;78&#39;]
+[&#39;LENA;74&#39;]
+&lt;class &#39;_csv.reader&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Powyżej widać, że plik wczytał się żle. Program nie rozdzielił danych, aby to poprawić trzeba określić <code>delimiter</code>, znak,, którym są oddzielone dane</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dane</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;probka.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="n">dane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">csv_content</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Imię&#39;, &#39;liczba osób&#39;]
+[&#39;ZOFIA&#39;, &#39;90&#39;]
+[&#39;HANNA&#39;, &#39;86&#39;]
+[&#39;ZUZANNA&#39;, &#39;86&#39;]
+[&#39;MAJA&#39;, &#39;82&#39;]
+[&#39;ALICJA&#39;, &#39;78&#39;]
+[&#39;LENA&#39;, &#39;74&#39;]
+&lt;class &#39;_csv.reader&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11799,6 +12028,53 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total no. of rows: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">csv_content</span><span class="o">.</span><span class="n">line_num</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total no. of rows:  386
+[[&#39;Imię&#39;, &#39;liczba osób&#39;]]
+[[&#39;ZOFIA&#39;, &#39;90&#39;], [&#39;HANNA&#39;, &#39;86&#39;], [&#39;ZUZANNA&#39;, &#39;86&#39;], [&#39;MAJA&#39;, &#39;82&#39;], [&#39;ALICJA&#39;, &#39;78&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11807,6 +12083,60 @@ div#notebook {
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="n">lista1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">lista1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]:</span>
+        <span class="c1">#print(row)</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span> 
+              <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:15}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># format, służy tylko lepszemu wyświetlaniu</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">head</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ZOFIA          90             
+HANNA          86             
+ZUZANNA        86             
+MAJA           82             
+ALICJA         78             
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11817,6 +12147,114 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># wczytajmy plik</span>
+<span class="n">imiona</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">wystapienia</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="n">imiona</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Imię&#39;</span><span class="p">))</span>
+        <span class="n">wystapienia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">imiona</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;ZOFIA&#39;, &#39;HANNA&#39;, &#39;ZUZANNA&#39;, &#39;MAJA&#39;, &#39;ALICJA&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dl</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># znajdżmy najdłuższe imię</span>
+<span class="n">max_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">imiona</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">max_name</span><span class="p">):</span>
+        <span class="n">max_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">max_name</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Najdłuższe imię to&#39;</span><span class="p">,</span> <span class="n">max_name</span><span class="p">)</span>    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ZOFIA
+ZUZANNA
+ALEKSANDRA
+MAKSYMILIAN
+
+Najdłuższe imię to MAKSYMILIAN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11825,6 +12263,39 @@ div#notebook {
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;SZYMON&#39;</span> <span class="ow">in</span> <span class="n">imiona</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11835,6 +12306,462 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#najpierw wybieramy sposób wczytania danych</span>
+<span class="n">dane</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="n">dane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Imię&#39;, &#39;liczba osób&#39;]
+[&#39;ZOFIA&#39;, &#39;90&#39;]
+[&#39;HANNA&#39;, &#39;86&#39;]
+[&#39;ZUZANNA&#39;, &#39;86&#39;]
+[&#39;MAJA&#39;, &#39;82&#39;]
+[&#39;ALICJA&#39;, &#39;78&#39;]
+[&#39;LENA&#39;, &#39;74&#39;]
+[&#39;JULIA&#39;, &#39;72&#39;]
+[&#39;NATALIA&#39;, &#39;66&#39;]
+[&#39;AMELIA&#39;, &#39;58&#39;]
+[&#39;ALEKSANDRA&#39;, &#39;55&#39;]
+[&#39;MARIA&#39;, &#39;51&#39;]
+[&#39;LILIANA&#39;, &#39;50&#39;]
+[&#39;ANNA&#39;, &#39;49&#39;]
+[&#39;WIKTORIA&#39;, &#39;44&#39;]
+[&#39;OLIWIA&#39;, &#39;43&#39;]
+[&#39;IGA&#39;, &#39;41&#39;]
+[&#39;POLA&#39;, &#39;40&#39;]
+[&#39;AGATA&#39;, &#39;38&#39;]
+[&#39;NINA&#39;, &#39;36&#39;]
+[&#39;HELENA&#39;, &#39;35&#39;]
+[&#39;ANTONINA&#39;, &#39;33&#39;]
+[&#39;EMILIA&#39;, &#39;33&#39;]
+[&#39;WERONIKA&#39;, &#39;28&#39;]
+[&#39;MARTYNA&#39;, &#39;26&#39;]
+[&#39;NADIA&#39;, &#39;26&#39;]
+[&#39;MICHALINA&#39;, &#39;25&#39;]
+[&#39;KORNELIA&#39;, &#39;23&#39;]
+[&#39;LAURA&#39;, &#39;23&#39;]
+[&#39;MAGDALENA&#39;, &#39;22&#39;]
+[&#39;MARTA&#39;, &#39;22&#39;]
+[&#39;JAGODA&#39;, &#39;21&#39;]
+[&#39;MAŁGORZATA&#39;, &#39;21&#39;]
+[&#39;NIKOLA&#39;, &#39;20&#39;]
+[&#39;MILENA&#39;, &#39;19&#39;]
+[&#39;BARBARA&#39;, &#39;18&#39;]
+[&#39;KINGA&#39;, &#39;18&#39;]
+[&#39;ŁUCJA&#39;, &#39;18&#39;]
+[&#39;URSZULA&#39;, &#39;18&#39;]
+[&#39;KALINA&#39;, &#39;16&#39;]
+[&#39;LIDIA&#39;, &#39;16&#39;]
+[&#39;KAROLINA&#39;, &#39;15&#39;]
+[&#39;PAULINA&#39;, &#39;15&#39;]
+[&#39;LILIANNA&#39;, &#39;14&#39;]
+[&#39;MATYLDA&#39;, &#39;14&#39;]
+[&#39;KAJA&#39;, &#39;13&#39;]
+[&#39;SARA&#39;, &#39;13&#39;]
+[&#39;EWA&#39;, &#39;12&#39;]
+[&#39;MARCELINA&#39;, &#39;12&#39;]
+[&#39;MARIANNA&#39;, &#39;12&#39;]
+[&#39;ANASTAZJA&#39;, &#39;11&#39;]
+[&#39;BLANKA&#39;, &#39;11&#39;]
+[&#39;NELA&#39;, &#39;11&#39;]
+[&#39;ANIELA&#39;, &#39;10&#39;]
+[&#39;DOMINIKA&#39;, &#39;10&#39;]
+[&#39;GABRIELA&#39;, &#39;10&#39;]
+[&#39;KATARZYNA&#39;, &#39;10&#39;]
+[&#39;LIWIA&#39;, &#39;10&#39;]
+[&#39;IDA&#39;, &#39;9&#39;]
+[&#39;JOANNA&#39;, &#39;9&#39;]
+[&#39;RITA&#39;, &#39;9&#39;]
+[&#39;BIANKA&#39;, &#39;8&#39;]
+[&#39;KLARA&#39;, &#39;8&#39;]
+[&#39;KLAUDIA&#39;, &#39;8&#39;]
+[&#39;RÓŻA&#39;, &#39;8&#39;]
+[&#39;DOROTA&#39;, &#39;7&#39;]
+[&#39;ELIZA&#39;, &#39;7&#39;]
+[&#39;ROZALIA&#39;, &#39;7&#39;]
+[&#39;APOLONIA&#39;, &#39;6&#39;]
+[&#39;MALWINA&#39;, &#39;6&#39;]
+[&#39;OLGA&#39;, &#39;6&#39;]
+[&#39;PATRYCJA&#39;, &#39;6&#39;]
+[&#39;ADRIANNA&#39;, &#39;5&#39;]
+[&#39;AGNIESZKA&#39;, &#39;5&#39;]
+[&#39;ELŻBIETA&#39;, &#39;5&#39;]
+[&#39;JADWIGA&#39;, &#39;5&#39;]
+[&#39;TOLA&#39;, &#39;5&#39;]
+[&#39;EMMA&#39;, &#39;4&#39;]
+[&#39;IZABELA&#39;, &#39;4&#39;]
+[&#39;JULIANNA&#39;, &#39;4&#39;]
+[&#39;MARIKA&#39;, &#39;4&#39;]
+[&#39;MIA&#39;, &#39;4&#39;]
+[&#39;WANDA&#39;, &#39;4&#39;]
+[&#39;ADA&#39;, &#39;3&#39;]
+[&#39;CECYLIA&#39;, &#39;3&#39;]
+[&#39;CELINA&#39;, &#39;3&#39;]
+[&#39;DANUTA&#39;, &#39;3&#39;]
+[&#39;JAGNA&#39;, &#39;3&#39;]
+[&#39;KAMILA&#39;, &#39;3&#39;]
+[&#39;KONSTANCJA&#39;, &#39;3&#39;]
+[&#39;LEA&#39;, &#39;3&#39;]
+[&#39;LILIA&#39;, &#39;3&#39;]
+[&#39;MARLENA&#39;, &#39;3&#39;]
+[&#39;NATASZA&#39;, &#39;3&#39;]
+[&#39;NEL&#39;, &#39;3&#39;]
+[&#39;ROKSANA&#39;, &#39;3&#39;]
+[&#39;TERESA&#39;, &#39;3&#39;]
+[&#39;VICTORIA&#39;, &#39;3&#39;]
+[&#39;ADELA&#39;, &#39;2&#39;]
+[&#39;ANTONIA&#39;, &#39;2&#39;]
+[&#39;AURELIA&#39;, &#39;2&#39;]
+[&#39;BRYGIDA&#39;, &#39;2&#39;]
+[&#39;GAJA&#39;, &#39;2&#39;]
+[&#39;HALINA&#39;, &#39;2&#39;]
+[&#39;IDALIA&#39;, &#39;2&#39;]
+[&#39;INKA&#39;, &#39;2&#39;]
+[&#39;IRENA&#39;, &#39;2&#39;]
+[&#39;IZABELLA&#39;, &#39;2&#39;]
+[&#39;JAŚMINA&#39;, &#39;2&#39;]
+[&#39;JULITA&#39;, &#39;2&#39;]
+[&#39;JUSTYNA&#39;, &#39;2&#39;]
+[&#39;KASANDRA&#39;, &#39;2&#39;]
+[&#39;KRYSTYNA&#39;, &#39;2&#39;]
+[&#39;LARYSA&#39;, &#39;2&#39;]
+[&#39;LATIKA&#39;, &#39;2&#39;]
+[&#39;LILA&#39;, &#39;2&#39;]
+[&#39;LUIZA&#39;, &#39;2&#39;]
+[&#39;MAGDA&#39;, &#39;2&#39;]
+[&#39;MAYA&#39;, &#39;2&#39;]
+[&#39;MIKA&#39;, &#39;2&#39;]
+[&#39;MILA&#39;, &#39;2&#39;]
+[&#39;MONIKA&#39;, &#39;2&#39;]
+[&#39;OKSANA&#39;, &#39;2&#39;]
+[&#39;OLIMPIA&#39;, &#39;2&#39;]
+[&#39;OLIVIA&#39;, &#39;2&#39;]
+[&#39;PAULA&#39;, &#39;2&#39;]
+[&#39;TAMARA&#39;, &#39;2&#39;]
+[&#39;VANESSA&#39;, &#39;2&#39;]
+[&#39;ABRIL&#39;, &#39;1&#39;]
+[&#39;ALICIA&#39;, &#39;1&#39;]
+[&#39;ALINA&#39;, &#39;1&#39;]
+[&#39;AMANDA&#39;, &#39;1&#39;]
+[&#39;AWERYLLA&#39;, &#39;1&#39;]
+[&#39;BERENIKA&#39;, &#39;1&#39;]
+[&#39;BIBIANA&#39;, &#39;1&#39;]
+[&#39;BOGUMIŁA&#39;, &#39;1&#39;]
+[&#39;CARMEN&#39;, &#39;1&#39;]
+[&#39;CELESTYNA&#39;, &#39;1&#39;]
+[&#39;CLARISSA&#39;, &#39;1&#39;]
+[&#39;DAGMARA&#39;, &#39;1&#39;]
+[&#39;DAGNA&#39;, &#39;1&#39;]
+[&#39;DALIA&#39;, &#39;1&#39;]
+[&#39;DARIA&#39;, &#39;1&#39;]
+[&#39;DIANA&#39;, &#39;1&#39;]
+[&#39;DOBROCHNA&#39;, &#39;1&#39;]
+[&#39;ESTER&#39;, &#39;1&#39;]
+[&#39;ESTERA&#39;, &#39;1&#39;]
+[&#39;FELICJA&#39;, &#39;1&#39;]
+[&#39;FRANCISZKA&#39;, &#39;1&#39;]
+[&#39;GRACJA&#39;, &#39;1&#39;]
+[&#39;GRETA&#39;, &#39;1&#39;]
+[&#39;HANA&#39;, &#39;1&#39;]
+[&#39;ILARIA&#39;, &#39;1&#39;]
+[&#39;ILONA&#39;, &#39;1&#39;]
+[&#39;INA&#39;, &#39;1&#39;]
+[&#39;INEZ&#39;, &#39;1&#39;]
+[&#39;INGA&#39;, &#39;1&#39;]
+[&#39;IRLA&#39;, &#39;1&#39;]
+[&#39;JANA&#39;, &#39;1&#39;]
+[&#39;JANINA&#39;, &#39;1&#39;]
+[&#39;JOWITA&#39;, &#39;1&#39;]
+[&#39;JÓZEFINA&#39;, &#39;1&#39;]
+[&#39;JUDYTA&#39;, &#39;1&#39;]
+[&#39;KARINA&#39;, &#39;1&#39;]
+[&#39;KAYA&#39;, &#39;1&#39;]
+[&#39;KIARA&#39;, &#39;1&#39;]
+[&#39;KIRA&#39;, &#39;1&#39;]
+[&#39;KLEMENTYNA&#39;, &#39;1&#39;]
+[&#39;LAILA&#39;, &#39;1&#39;]
+[&#39;LARA&#39;, &#39;1&#39;]
+[&#39;LEILA&#39;, &#39;1&#39;]
+[&#39;LEONORA&#39;, &#39;1&#39;]
+[&#39;LETYCJA&#39;, &#39;1&#39;]
+[&#39;LILI&#39;, &#39;1&#39;]
+[&#39;LIVIA&#39;, &#39;1&#39;]
+[&#39;LUCYNA&#39;, &#39;1&#39;]
+[&#39;MALENA&#39;, &#39;1&#39;]
+[&#39;MALINA&#39;, &#39;1&#39;]
+[&#39;MARCJANNA&#39;, &#39;1&#39;]
+[&#39;MARISSA&#39;, &#39;1&#39;]
+[&#39;MASZA&#39;, &#39;1&#39;]
+[&#39;MIŁA&#39;, &#39;1&#39;]
+[&#39;MIRA&#39;, &#39;1&#39;]
+[&#39;MIRIAM&#39;, &#39;1&#39;]
+[&#39;NEWENA&#39;, &#39;1&#39;]
+[&#39;OLA&#39;, &#39;1&#39;]
+[&#39;ROXANA&#39;, &#39;1&#39;]
+[&#39;SABINA&#39;, &#39;1&#39;]
+[&#39;SAMANTA&#39;, &#39;1&#39;]
+[&#39;SANDRA&#39;, &#39;1&#39;]
+[&#39;SELENA&#39;, &#39;1&#39;]
+[&#39;SIMAR&#39;, &#39;1&#39;]
+[&#39;STEFANIA&#39;, &#39;1&#39;]
+[&#39;STELLA&#39;, &#39;1&#39;]
+[&#39;TANAE&#39;, &#39;1&#39;]
+[&#39;TIMEA&#39;, &#39;1&#39;]
+[&#39;VIVIENNE&#39;, &#39;1&#39;]
+[&#39;WALENTYNA&#39;, &#39;1&#39;]
+[&#39;WERA&#39;, &#39;1&#39;]
+[&#39;WIERA&#39;, &#39;1&#39;]
+[&#39;ZOE&#39;, &#39;1&#39;]
+[&#39;ZOJA&#39;, &#39;1&#39;]
+[&#39;JAN&#39;, &#39;105&#39;]
+[&#39;JAKUB&#39;, &#39;94&#39;]
+[&#39;ALEKSANDER&#39;, &#39;87&#39;]
+[&#39;FRANCISZEK&#39;, &#39;82&#39;]
+[&#39;KACPER&#39;, &#39;75&#39;]
+[&#39;ANTONI&#39;, &#39;73&#39;]
+[&#39;MICHAŁ&#39;, &#39;70&#39;]
+[&#39;SZYMON&#39;, &#39;65&#39;]
+[&#39;STANISŁAW&#39;, &#39;62&#39;]
+[&#39;WOJCIECH&#39;, &#39;60&#39;]
+[&#39;ADAM&#39;, &#39;55&#39;]
+[&#39;MIKOŁAJ&#39;, &#39;54&#39;]
+[&#39;FILIP&#39;, &#39;51&#39;]
+[&#39;LEON&#39;, &#39;50&#39;]
+[&#39;WIKTOR&#39;, &#39;49&#39;]
+[&#39;NIKODEM&#39;, &#39;46&#39;]
+[&#39;TOMASZ&#39;, &#39;44&#39;]
+[&#39;MATEUSZ&#39;, &#39;40&#39;]
+[&#39;MARCEL&#39;, &#39;39&#39;]
+[&#39;JULIAN&#39;, &#39;37&#39;]
+[&#39;TYMON&#39;, &#39;37&#39;]
+[&#39;IGNACY&#39;, &#39;36&#39;]
+[&#39;BARTOSZ&#39;, &#39;35&#39;]
+[&#39;PIOTR&#39;, &#39;35&#39;]
+[&#39;TYMOTEUSZ&#39;, &#39;35&#39;]
+[&#39;MACIEJ&#39;, &#39;33&#39;]
+[&#39;IGOR&#39;, &#39;32&#39;]
+[&#39;MAKSYMILIAN&#39;, &#39;30&#39;]
+[&#39;HUBERT&#39;, &#39;29&#39;]
+[&#39;OSKAR&#39;, &#39;29&#39;]
+[&#39;DOMINIK&#39;, &#39;28&#39;]
+[&#39;KRZYSZTOF&#39;, &#39;28&#39;]
+[&#39;OLIWIER&#39;, &#39;27&#39;]
+[&#39;DAWID&#39;, &#39;26&#39;]
+[&#39;PAWEŁ&#39;, &#39;20&#39;]
+[&#39;MIŁOSZ&#39;, &#39;17&#39;]
+[&#39;KAMIL&#39;, &#39;16&#39;]
+[&#39;NATAN&#39;, &#39;16&#39;]
+[&#39;KONRAD&#39;, &#39;15&#39;]
+[&#39;ŁUKASZ&#39;, &#39;15&#39;]
+[&#39;ALAN&#39;, &#39;14&#39;]
+[&#39;KAROL&#39;, &#39;14&#39;]
+[&#39;GRZEGORZ&#39;, &#39;13&#39;]
+[&#39;KSAWERY&#39;, &#39;13&#39;]
+[&#39;KUBA&#39;, &#39;13&#39;]
+[&#39;BARTŁOMIEJ&#39;, &#39;12&#39;]
+[&#39;BORYS&#39;, &#39;12&#39;]
+[&#39;DANIEL&#39;, &#39;12&#39;]
+[&#39;SEBASTIAN&#39;, &#39;12&#39;]
+[&#39;PATRYK&#39;, &#39;11&#39;]
+[&#39;ROBERT&#39;, &#39;11&#39;]
+[&#39;CEZARY&#39;, &#39;10&#39;]
+[&#39;ERYK&#39;, &#39;10&#39;]
+[&#39;IWO&#39;, &#39;10&#39;]
+[&#39;JEREMI&#39;, &#39;10&#39;]
+[&#39;MILAN&#39;, &#39;10&#39;]
+[&#39;ARTUR&#39;, &#39;9&#39;]
+[&#39;FABIAN&#39;, &#39;9&#39;]
+[&#39;HENRYK&#39;, &#39;9&#39;]
+[&#39;MARCIN&#39;, &#39;9&#39;]
+[&#39;OLAF&#39;, &#39;9&#39;]
+[&#39;ADRIAN&#39;, &#39;8&#39;]
+[&#39;BRUNO&#39;, &#39;8&#39;]
+[&#39;GABRIEL&#39;, &#39;8&#39;]
+[&#39;KAJETAN&#39;, &#39;8&#39;]
+[&#39;MAREK&#39;, &#39;8&#39;]
+[&#39;STEFAN&#39;, &#39;8&#39;]
+[&#39;TOBIASZ&#39;, &#39;8&#39;]
+[&#39;JERZY&#39;, &#39;7&#39;]
+[&#39;KAZIMIERZ&#39;, &#39;7&#39;]
+[&#39;KONSTANTY&#39;, &#39;7&#39;]
+[&#39;LEONARD&#39;, &#39;7&#39;]
+[&#39;PRZEMYSŁAW&#39;, &#39;7&#39;]
+[&#39;TEODOR&#39;, &#39;7&#39;]
+[&#39;WITOLD&#39;, &#39;7&#39;]
+[&#39;ALEX&#39;, &#39;6&#39;]
+[&#39;DORIAN&#39;, &#39;6&#39;]
+[&#39;GUSTAW&#39;, &#39;6&#39;]
+[&#39;KRYSTIAN&#39;, &#39;6&#39;]
+[&#39;RYSZARD&#39;, &#39;6&#39;]
+[&#39;TADEUSZ&#39;, &#39;6&#39;]
+[&#39;ARKADIUSZ&#39;, &#39;5&#39;]
+[&#39;DAMIAN&#39;, &#39;5&#39;]
+[&#39;EMIL&#39;, &#39;5&#39;]
+[&#39;TYTUS&#39;, &#39;5&#39;]
+[&#39;ANDRZEJ&#39;, &#39;4&#39;]
+[&#39;BŁAŻEJ&#39;, &#39;4&#39;]
+[&#39;FRYDERYK&#39;, &#39;4&#39;]
+[&#39;JÓZEF&#39;, &#39;4&#39;]
+[&#39;KORNEL&#39;, &#39;4&#39;]
+[&#39;RAFAŁ&#39;, &#39;4&#39;]
+[&#39;BENIAMIN&#39;, &#39;3&#39;]
+[&#39;BERNARD&#39;, &#39;3&#39;]
+[&#39;DARIUSZ&#39;, &#39;3&#39;]
+[&#39;DAVID&#39;, &#39;3&#39;]
+[&#39;JANUSZ&#39;, &#39;3&#39;]
+[&#39;JĘDRZEJ&#39;, &#39;3&#39;]
+[&#39;JULIUSZ&#39;, &#39;3&#39;]
+[&#39;LUDWIK&#39;, &#39;3&#39;]
+[&#39;MIESZKO&#39;, &#39;3&#39;]
+[&#39;NATANIEL&#39;, &#39;3&#39;]
+[&#39;NORBERT&#39;, &#39;3&#39;]
+[&#39;RADOSŁAW&#39;, &#39;3&#39;]
+[&#39;VINCENT&#39;, &#39;3&#39;]
+[&#39;WŁADYSŁAW&#39;, &#39;3&#39;]
+[&#39;AARON&#39;, &#39;2&#39;]
+[&#39;ALBERT&#39;, &#39;2&#39;]
+[&#39;ALEXANDER&#39;, &#39;2&#39;]
+[&#39;BOGUSŁAW&#39;, &#39;2&#39;]
+[&#39;EDWARD&#39;, &#39;2&#39;]
+[&#39;FELIKS&#39;, &#39;2&#39;]
+[&#39;FLORIAN&#39;, &#39;2&#39;]
+[&#39;IVO&#39;, &#39;2&#39;]
+[&#39;KASJAN&#39;, &#39;2&#39;]
+[&#39;OLIVIER&#39;, &#39;2&#39;]
+[&#39;REMIGIUSZ&#39;, &#39;2&#39;]
+[&#39;SEWERYN&#39;, &#39;2&#39;]
+[&#39;VICTOR&#39;, &#39;2&#39;]
+[&#39;WINCENTY&#39;, &#39;2&#39;]
+[&#39;ZBIGNIEW&#39;, &#39;2&#39;]
+[&#39;ABDULLATIF&#39;, &#39;1&#39;]
+[&#39;AITEN&#39;, &#39;1&#39;]
+[&#39;ALEK&#39;, &#39;1&#39;]
+[&#39;ALEKS&#39;, &#39;1&#39;]
+[&#39;ARIEL&#39;, &#39;1&#39;]
+[&#39;ARISTOTELIS&#39;, &#39;1&#39;]
+[&#39;ARON&#39;, &#39;1&#39;]
+[&#39;BALTAZAR&#39;, &#39;1&#39;]
+[&#39;BASTIAN&#39;, &#39;1&#39;]
+[&#39;BENEDYKT&#39;, &#39;1&#39;]
+[&#39;BENJAMIN&#39;, &#39;1&#39;]
+[&#39;BOGDAN&#39;, &#39;1&#39;]
+[&#39;BOGUMIŁ&#39;, &#39;1&#39;]
+[&#39;BOLESŁAW&#39;, &#39;1&#39;]
+[&#39;BRAJAN&#39;, &#39;1&#39;]
+[&#39;BRUNON&#39;, &#39;1&#39;]
+[&#39;BRYAN&#39;, &#39;1&#39;]
+[&#39;CHARLES&#39;, &#39;1&#39;]
+[&#39;CZESŁAW&#39;, &#39;1&#39;]
+[&#39;EDWIN&#39;, &#39;1&#39;]
+[&#39;EMILIAN&#39;, &#39;1&#39;]
+[&#39;ERNEST&#39;, &#39;1&#39;]
+[&#39;GEORG&#39;, &#39;1&#39;]
+[&#39;GNIEWKO&#39;, &#39;1&#39;]
+[&#39;GNIEWOSZ&#39;, &#39;1&#39;]
+[&#39;HUGO&#39;, &#39;1&#39;]
+[&#39;JACEK&#39;, &#39;1&#39;]
+[&#39;JAROSŁAW&#39;, &#39;1&#39;]
+[&#39;JOACHIM&#39;, &#39;1&#39;]
+[&#39;JOEL&#39;, &#39;1&#39;]
+[&#39;KARIM&#39;, &#39;1&#39;]
+[&#39;KASPER&#39;, &#39;1&#39;]
+[&#39;KAYSON&#39;, &#39;1&#39;]
+[&#39;KORDIAN&#39;, &#39;1&#39;]
+[&#39;KOSMA&#39;, &#39;1&#39;]
+[&#39;KRZESIMIR&#39;, &#39;1&#39;]
+[&#39;KSAWIER&#39;, &#39;1&#39;]
+[&#39;LENART&#39;, &#39;1&#39;]
+[&#39;LEO&#39;, &#39;1&#39;]
+[&#39;LEONARDO&#39;, &#39;1&#39;]
+[&#39;LESZEK&#39;, &#39;1&#39;]
+[&#39;MA CIEJ&#39;, &#39;1&#39;]
+[&#39;MAKS&#39;, &#39;1&#39;]
+[&#39;MAKSYM&#39;, &#39;1&#39;]
+[&#39;MARIO&#39;, &#39;1&#39;]
+[&#39;MAURYCY&#39;, &#39;1&#39;]
+[&#39;MAXIMILIAN&#39;, &#39;1&#39;]
+[&#39;MAXYM&#39;, &#39;1&#39;]
+[&#39;MAXYMILIAN&#39;, &#39;1&#39;]
+[&#39;MIECZYSŁAW&#39;, &#39;1&#39;]
+[&#39;MIRON&#39;, &#39;1&#39;]
+[&#39;NAZAR&#39;, &#39;1&#39;]
+[&#39;NILS&#39;, &#39;1&#39;]
+[&#39;NOEL&#39;, &#39;1&#39;]
+[&#39;OLGIERD&#39;, &#39;1&#39;]
+[&#39;OREST&#39;, &#39;1&#39;]
+[&#39;PATRIK&#39;, &#39;1&#39;]
+[&#39;SAMUEL&#39;, &#39;1&#39;]
+[&#39;SERGIUSZ&#39;, &#39;1&#39;]
+[&#39;SŁAWOMIR&#39;, &#39;1&#39;]
+[&#39;SYLWESTER&#39;, &#39;1&#39;]
+[&#39;SZCZEPAN&#39;, &#39;1&#39;]
+[&#39;VIKTOR&#39;, &#39;1&#39;]
+[&#39;XAVIER&#39;, &#39;1&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">your_name</span> <span class="o">=</span> <span class="s1">&#39;SZYMON&#39;</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dane</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> <span class="c1">#pierwsza linijka to nagłówki, dlatego pomijamy</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">your_name</span><span class="p">:</span> <span class="c1"># dane składa się z list, więc row to lista dwu elementowa</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># liczba osób o danym imieniu</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>65
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11844,14 +12771,241 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dane</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> 
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># musimy zrzutować zmienną na int, gdyz pow czytaniu jest jako string</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ABRIL
+ALICIA
+ALINA
+AMANDA
+AWERYLLA
+BERENIKA
+BIBIANA
+BOGUMIŁA
+CARMEN
+CELESTYNA
+CLARISSA
+DAGMARA
+DAGNA
+DALIA
+DARIA
+DIANA
+DOBROCHNA
+ESTER
+ESTERA
+FELICJA
+FRANCISZKA
+GRACJA
+GRETA
+HANA
+ILARIA
+ILONA
+INA
+INEZ
+INGA
+IRLA
+JANA
+JANINA
+JOWITA
+JÓZEFINA
+JUDYTA
+KARINA
+KAYA
+KIARA
+KIRA
+KLEMENTYNA
+LAILA
+LARA
+LEILA
+LEONORA
+LETYCJA
+LILI
+LIVIA
+LUCYNA
+MALENA
+MALINA
+MARCJANNA
+MARISSA
+MASZA
+MIŁA
+MIRA
+MIRIAM
+NEWENA
+OLA
+ROXANA
+SABINA
+SAMANTA
+SANDRA
+SELENA
+SIMAR
+STEFANIA
+STELLA
+TANAE
+TIMEA
+VIVIENNE
+WALENTYNA
+WERA
+WIERA
+ZOE
+ZOJA
+ABDULLATIF
+AITEN
+ALEK
+ALEKS
+ARIEL
+ARISTOTELIS
+ARON
+BALTAZAR
+BASTIAN
+BENEDYKT
+BENJAMIN
+BOGDAN
+BOGUMIŁ
+BOLESŁAW
+BRAJAN
+BRUNON
+BRYAN
+CHARLES
+CZESŁAW
+EDWIN
+EMILIAN
+ERNEST
+GEORG
+GNIEWKO
+GNIEWOSZ
+HUGO
+JACEK
+JAROSŁAW
+JOACHIM
+JOEL
+KARIM
+KASPER
+KAYSON
+KORDIAN
+KOSMA
+KRZESIMIR
+KSAWIER
+LENART
+LEO
+LEONARDO
+LESZEK
+MA CIEJ
+MAKS
+MAKSYM
+MARIO
+MAURYCY
+MAXIMILIAN
+MAXYM
+MAXYMILIAN
+MIECZYSŁAW
+MIRON
+NAZAR
+NILS
+NOEL
+OLGIERD
+OREST
+PATRIK
+SAMUEL
+SERGIUSZ
+SŁAWOMIR
+SYLWESTER
+SZCZEPAN
+VIKTOR
+XAVIER
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#262;wiczenie-7">&#262;wiczenie 7<a class="anchor-link" href="#&#262;wiczenie-7">&#182;</a></h3><p>Napisz program, który znajdzie najrzadzsze imiona dla chłopców i dziewczynek osobno.</p>
+<h3 id="&#262;wiczenie-7">&#262;wiczenie 7<a class="anchor-link" href="#&#262;wiczenie-7">&#182;</a></h3><p>Napisz program, który znajdzie najrzadzsze imiona dla chłopców i dziewczynek osobno. <br>
+Założenie: żeńskie imiona kończą się na A. Jest to drobne nadużycie w tym wypadku.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span> 
+    <span class="c1"># errors=&#39;igonre&#39; dla osób  u których nie działało beztego ze wzgledu na polskie znaki, problem z systemem operacyjnym</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="n">dane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imiona_z</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="n">imiona_m</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dane</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span> 
+    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="c1"># musimy zrzutować zmienną na int, gdyz po wczytaniu jest jako string</span>
+        <span class="n">imiona_z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;A&#39;</span><span class="p">:</span>
+        <span class="n">imiona_m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imiona_m</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;ABIGAIL&#39;, &#39;AGORE&#39;, &#39;AMELIE&#39;, &#39;CARMEN&#39;, &#39;EMI&#39;, &#39;HEIDI&#39;, &#39;KAREN&#39;, &#39;KYLIE&#39;, &#39;MEGAN&#39;, &#39;NAOMI&#39;, &#39;ZOE&#39;, &#39;ADNAN&#39;, &#39;AKSEL&#39;, &#39;ALEK&#39;, &#39;ALEKSY&#39;, &#39;ANDRZEJ&#39;, &#39;ARCHIE&#39;, &#39;ARON&#39;, &#39;AUGUSTYN&#39;, &#39;AXEL&#39;, &#39;BENEDYKT&#39;, &#39;BENIAMIN&#39;, &#39;BOGUMIŁ&#39;, &#39;BRAJAN&#39;, &#39;BRUNON&#39;, &#39;CRISTIANO&#39;, &#39;CZESŁAW&#39;, &#39;DAMIEN&#39;, &#39;DAVID&#39;, &#39;EDMUND&#39;, &#39;EDWARD&#39;, &#39;ERIC&#39;, &#39;ERNEST&#39;, &#39;EUZEBIUSZ&#39;, &#39;FLORIAN&#39;, &#39;FRANCESCO&#39;, &#39;FRANCO&#39;, &#39;GERALD&#39;, &#39;GILBERT&#39;, &#39;GNIEWOSZ&#39;, &#39;HERBERT&#39;, &#39;IVO&#39;, &#39;JAROMIR&#39;, &#39;JEREMIASZ&#39;, &#39;JONASZ&#39;, &#39;JONATAN&#39;, &#39;KASJAN&#39;, &#39;KASPER&#39;, &#39;KEVIN&#39;, &#39;KORDIAN&#39;, &#39;KSAWIER&#39;, &#39;LEO&#39;, &#39;LEOPOLD&#39;, &#39;LEVI&#39;, &#39;LUCAS&#39;, &#39;MAKSYM&#39;, &#39;MARCELI&#39;, &#39;MARIUSZ&#39;, &#39;MARK&#39;, &#39;MAXIMILIAN&#39;, &#39;MAXIMILIANO&#39;, &#39;MIECZYSŁAW&#39;, &#39;MIROSŁAW&#39;, &#39;NORBERT&#39;, &#39;OLIWER&#39;, &#39;OSCAR&#39;, &#39;OTTO&#39;, &#39;PANKRACY&#39;, &#39;PATRYK&#39;, &#39;PHILIP&#39;, &#39;RADOSŁAW&#39;, &#39;ROCH&#39;, &#39;SAMUEL&#39;, &#39;SERGIUSZ&#39;, &#39;SYLWESTER&#39;, &#39;SYRIUSZ&#39;, &#39;ŚCIBOR&#39;, &#39;TEOMAN&#39;, &#39;VINCENT&#39;, &#39;WILLIAM&#39;, &#39;XAVIER&#39;, &#39;ABRIL&#39;, &#39;CARMEN&#39;, &#39;ESTER&#39;, &#39;INEZ&#39;, &#39;LILI&#39;, &#39;MIRIAM&#39;, &#39;SIMAR&#39;, &#39;TANAE&#39;, &#39;VIVIENNE&#39;, &#39;ZOE&#39;, &#39;ABDULLATIF&#39;, &#39;AITEN&#39;, &#39;ALEK&#39;, &#39;ALEKS&#39;, &#39;ARIEL&#39;, &#39;ARISTOTELIS&#39;, &#39;ARON&#39;, &#39;BALTAZAR&#39;, &#39;BASTIAN&#39;, &#39;BENEDYKT&#39;, &#39;BENJAMIN&#39;, &#39;BOGDAN&#39;, &#39;BOGUMIŁ&#39;, &#39;BOLESŁAW&#39;, &#39;BRAJAN&#39;, &#39;BRUNON&#39;, &#39;BRYAN&#39;, &#39;CHARLES&#39;, &#39;CZESŁAW&#39;, &#39;EDWIN&#39;, &#39;EMILIAN&#39;, &#39;ERNEST&#39;, &#39;GEORG&#39;, &#39;GNIEWKO&#39;, &#39;GNIEWOSZ&#39;, &#39;HUGO&#39;, &#39;JACEK&#39;, &#39;JAROSŁAW&#39;, &#39;JOACHIM&#39;, &#39;JOEL&#39;, &#39;KARIM&#39;, &#39;KASPER&#39;, &#39;KAYSON&#39;, &#39;KORDIAN&#39;, &#39;KRZESIMIR&#39;, &#39;KSAWIER&#39;, &#39;LENART&#39;, &#39;LEO&#39;, &#39;LEONARDO&#39;, &#39;LESZEK&#39;, &#39;MA CIEJ&#39;, &#39;MAKS&#39;, &#39;MAKSYM&#39;, &#39;MARIO&#39;, &#39;MAURYCY&#39;, &#39;MAXIMILIAN&#39;, &#39;MAXYM&#39;, &#39;MAXYMILIAN&#39;, &#39;MIECZYSŁAW&#39;, &#39;MIRON&#39;, &#39;NAZAR&#39;, &#39;NILS&#39;, &#39;NOEL&#39;, &#39;OLGIERD&#39;, &#39;OREST&#39;, &#39;PATRIK&#39;, &#39;SAMUEL&#39;, &#39;SERGIUSZ&#39;, &#39;SŁAWOMIR&#39;, &#39;SYLWESTER&#39;, &#39;SZCZEPAN&#39;, &#39;VIKTOR&#39;, &#39;XAVIER&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11861,6 +13015,91 @@ div#notebook {
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dane</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span> 
+    <span class="c1"># errors=&#39;igonre&#39; dla osób  u których nie działało beztego ze wzgledu na polskie znaki, problem z systemem operacyjnym</span>
+    <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+        <span class="n">dane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dane</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OrderedDict([(&#39;Imię&#39;, &#39;ZUZANNA&#39;), (&#39;liczba osób&#39;, &#39;86&#39;)])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># powyżej wczytaliśmy plik, wytsarczy teraz zsumować</span>
+<span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dane</span><span class="p">:</span>
+    <span class="n">suma</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4485
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11875,6 +13114,58 @@ Dla każdego roku osobno. Przykładowy wynik działania programu: <br>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lista_plikow</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;imiona_gdansk_2016.csv&#39;</span><span class="p">,</span><span class="s1">&#39;imiona_gdansk_2017.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;imiona_gdansk_2018.csv&#39;</span><span class="p">]</span>
+<span class="n">rok</span> <span class="o">=</span> <span class="mi">2015</span>
+<span class="k">for</span> <span class="n">nazwa</span> <span class="ow">in</span> <span class="n">lista_plikow</span><span class="p">:</span>
+    <span class="n">dane</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span> 
+        <span class="c1"># errors=&#39;igonre&#39; dla osób  u których nie działało beztego ze wzgledu na polskie znaki, problem z systemem operacyjnym</span>
+        <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">,</span> <span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span> <span class="c1">#neiktóre pliki nie mają nagłówków dodajemy je</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+            <span class="n">dane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#print(dane[0])</span>
+    <span class="k">if</span> <span class="n">rok</span> <span class="o">==</span> <span class="mi">2015</span><span class="p">:</span>
+        <span class="n">dane</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># usuwamy naglowek w 2015 roku</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dane</span><span class="p">:</span>
+        <span class="n">suma</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Liczba urodzęń w&#39;</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="s1">&#39;wynosi&#39;</span><span class="p">,</span> <span class="n">suma</span><span class="p">)</span>
+    <span class="n">rok</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Liczba urodzęń w 2015 wynosi 4485
+Liczba urodzęń w 2016 wynosi 4743
+Liczba urodzęń w 2017 wynosi 4698
+Liczba urodzęń w 2018 wynosi 4685
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11884,6 +13175,19 @@ Dla każdego roku osobno. Przykładowy wynik działania programu: <br>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># zadanie poniżej </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11892,6 +13196,76 @@ Dla każdego roku osobno. Przykładowy wynik działania programu: <br>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># jak wyżej tylko dajemy if czy imię żeńkie czy nie</span>
+<span class="n">lista_plikow</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;imiona_gdansk_2015.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;imiona_gdansk_2016.csv&#39;</span><span class="p">,</span><span class="s1">&#39;imiona_gdansk_2017.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;imiona_gdansk_2018.csv&#39;</span><span class="p">]</span>
+<span class="n">rok</span> <span class="o">=</span> <span class="mi">2015</span>
+<span class="k">for</span> <span class="n">nazwa</span> <span class="ow">in</span> <span class="n">lista_plikow</span><span class="p">:</span>
+    <span class="n">dane</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nazwa</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span> 
+        <span class="c1"># errors=&#39;igonre&#39; dla osób  u których nie działało beztego ze wzgledu na polskie znaki, problem z systemem operacyjnym</span>
+        <span class="n">csv_content</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">,</span> <span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span> <span class="c1">#neiktóre pliki nie mają nagłówków dodajemy je</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_content</span><span class="p">:</span>
+            <span class="n">dane</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">suma_z</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1">#print(dane[0])</span>
+    <span class="k">if</span> <span class="n">rok</span> <span class="o">==</span> <span class="mi">2015</span><span class="p">:</span>
+        <span class="n">dane</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># usuwamy naglowek w 2015 roku</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dane</span><span class="p">:</span>
+        <span class="n">suma</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;Imię&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span>
+            <span class="n">suma_z</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;liczba osób&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Liczba urodzęń w&#39;</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="s1">&#39;wynosi&#39;</span><span class="p">,</span> <span class="n">suma</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Liczba urodzeń dziewczynek&#39;</span><span class="p">,</span> <span class="n">suma_z</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Liczba urodzeń chłopców&#39;</span><span class="p">,</span> <span class="n">suma</span> <span class="o">-</span> <span class="n">suma_z</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">rok</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Liczba urodzęń w 2015 wynosi 4485
+Liczba urodzeń dziewczynek 2156
+Liczba urodzeń chłopców 2329 
+
+Liczba urodzęń w 2016 wynosi 4743
+Liczba urodzeń dziewczynek 2319
+Liczba urodzeń chłopców 2424 
+
+Liczba urodzęń w 2017 wynosi 4698
+Liczba urodzeń dziewczynek 2264
+Liczba urodzeń chłopców 2434 
+
+Liczba urodzęń w 2018 wynosi 4685
+Liczba urodzeń dziewczynek 2259
+Liczba urodzeń chłopców 2426 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
